@@ -50,7 +50,7 @@ class ContactService {
 
     async findById(id){
         return await this.Contact.findOne({
-            id: ObjectId.isValid(id) ? new ObjectId(id): null,
+            _id: ObjectId.isValid(id) ? new ObjectId(id): null,
         });
     }
 
