@@ -56,7 +56,7 @@ class ContactService {
 
     async update(id, payload){
         const filter = {
-            id: ObjectId.isValid(id) ? new ObjectId(id) : null,
+            _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
         };
         const update = this.extractContactData(payload);
         const result = await this.Contact.findOneAndUpdate(
@@ -69,7 +69,7 @@ class ContactService {
 
     async delete(id){
         const result = await this.Contact.findOneAndDelete({
-            id: ObjectId.isValid(id) ? new ObjectId(id) : null,
+            _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
         });
         return result;
     }
